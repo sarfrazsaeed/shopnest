@@ -1,0 +1,85 @@
+import type { Config } from 'tailwindcss'
+
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        gold: {
+          DEFAULT: '#F5B800',
+          light:   '#FFD966',
+          dark:    '#C98A00',
+          50:      '#FFFBEB',
+          100:     '#FEF3C7',
+          400:     '#FBBF24',
+          500:     '#F5B800',
+          600:     '#D97706',
+        },
+        dark: {
+          DEFAULT: '#0A0A0A',
+          50:  '#1A1A1A',
+          100: '#141414',
+          200: '#111111',
+          300: '#0D0D0D',
+          400: '#0A0A0A',
+          500: '#080808',
+        },
+        surface: {
+          DEFAULT: '#141414',
+          hover:   '#1E1E1E',
+          border:  '#2A2A2A',
+          light:   '#252525',
+        },
+        accent: {
+          red:    '#FF4444',
+          green:  '#22C55E',
+          blue:   '#3B82F6',
+          purple: '#8B5CF6',
+        },
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        body:    ['"Inter"', 'ui-sans-serif', 'sans-serif'],
+        mono:    ['"JetBrains Mono"', 'monospace'],
+      },
+      backgroundImage: {
+        'gold-gradient':   'linear-gradient(135deg, #F5B800 0%, #FFD966 50%, #C98A00 100%)',
+        'dark-gradient':   'linear-gradient(180deg, #0A0A0A 0%, #141414 100%)',
+        'hero-gradient':   'radial-gradient(ellipse at 70% 50%, rgba(245,184,0,0.15) 0%, transparent 60%)',
+        'card-gradient':   'linear-gradient(145deg, #1A1A1A 0%, #0F0F0F 100%)',
+        'shine':           'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%)',
+      },
+      boxShadow: {
+        'gold':      '0 0 30px rgba(245,184,0,0.3)',
+        'gold-sm':   '0 0 15px rgba(245,184,0,0.2)',
+        'card':      '0 4px 24px rgba(0,0,0,0.4)',
+        'card-hover':'0 8px 40px rgba(0,0,0,0.6)',
+        'inner-gold':'inset 0 1px 0 rgba(245,184,0,0.2)',
+      },
+      animation: {
+        'marquee':       'marquee 25s linear infinite',
+        'marquee-rev':   'marquee-rev 25s linear infinite',
+        'float':         'float 6s ease-in-out infinite',
+        'float-delayed': 'float 6s ease-in-out 2s infinite',
+        'shimmer':       'shimmer 2s infinite',
+        'pulse-gold':    'pulse-gold 2s ease-in-out infinite',
+        'spin-slow':     'spin 8s linear infinite',
+        'slide-up':      'slideUp 0.5s ease-out',
+        'fade-in':       'fadeIn 0.4s ease-out',
+        'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite',
+      },
+      keyframes: {
+        marquee:       { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-50%)' } },
+        'marquee-rev': { from: { transform: 'translateX(-50%)' }, to: { transform: 'translateX(0)' } },
+        float:         { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
+        shimmer:       { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+        'pulse-gold':  { '0%,100%': { boxShadow: '0 0 15px rgba(245,184,0,0.2)' }, '50%': { boxShadow: '0 0 30px rgba(245,184,0,0.5)' } },
+        slideUp:       { from: { opacity: '0', transform: 'translateY(20px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
+        fadeIn:        { from: { opacity: '0' }, to: { opacity: '1' } },
+        bounceSubtle:  { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+      },
+    },
+  },
+  plugins: [],
+} satisfies Config

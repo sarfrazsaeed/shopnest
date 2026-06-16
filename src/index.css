@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-dark text-white font-body antialiased; }
+  h1,h2,h3,h4 { @apply font-display; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-dark-100; }
+  ::-webkit-scrollbar-thumb { @apply bg-surface-border rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-gold; }
+  * { @apply border-surface-border; }
+  a:focus-visible, button:focus-visible { outline: 2px solid #F5B800; outline-offset: 2px; border-radius: 4px; }
+}
+
+@layer components {
+  .container-shop { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+
+  /* Buttons */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 bg-gold text-dark font-semibold
+           px-6 py-3 rounded-xl transition-all duration-300
+           hover:bg-gold-light hover:shadow-gold active:scale-95
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-surface-border
+           text-white font-medium px-6 py-3 rounded-xl transition-all duration-300
+           hover:border-gold hover:text-gold hover:bg-gold/5 active:scale-95;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 text-gray-400
+           font-medium px-4 py-2 rounded-lg transition-all duration-200
+           hover:text-white hover:bg-surface;
+  }
+  .btn-icon {
+    @apply w-10 h-10 rounded-xl flex items-center justify-center
+           border border-surface-border text-gray-400
+           transition-all duration-200 hover:border-gold hover:text-gold hover:bg-gold/5;
+  }
+
+  /* Cards */
+  .card-dark {
+    @apply bg-surface border border-surface-border rounded-2xl
+           transition-all duration-300 hover:border-gold/30 hover:shadow-card-hover;
+  }
+  .card-glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  /* Badges */
+  .badge { @apply inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full; }
+  .badge-gold { @apply badge bg-gold/15 text-gold border border-gold/30; }
+  .badge-red  { @apply badge bg-accent-red/15 text-accent-red border border-accent-red/30; }
+  .badge-green{ @apply badge bg-accent-green/15 text-accent-green border border-accent-green/30; }
+  .badge-blue { @apply badge bg-accent-blue/15 text-accent-blue border border-accent-blue/30; }
+
+  /* Inputs */
+  .input-dark {
+    @apply w-full bg-dark-50 border border-surface-border rounded-xl px-4 py-3
+           text-sm text-white placeholder:text-gray-600
+           focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold/20
+           transition-all duration-200;
+  }
+  .label-dark { @apply block text-xs font-medium text-gray-400 mb-1.5 uppercase tracking-wider; }
+
+  /* Section */
+  .section-tag {
+    @apply inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-gold
+           bg-gold/10 border border-gold/20 rounded-full px-4 py-1.5 mb-4;
+  }
+
+  /* Skeleton */
+  .skeleton {
+    @apply bg-gradient-to-r from-surface via-surface-light to-surface rounded-lg
+           animate-shimmer bg-[length:200%_100%];
+  }
+
+  /* Gold text gradient */
+  .text-gold-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #F5B800 0%, #FFD966 50%, #C98A00 100%);
+  }
+
+  /* Shine effect on cards */
+  .shine-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  .shine-effect::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 50%, transparent 60%);
+    transform: skewX(-15deg);
+    transition: left 0.6s ease;
+  }
+  .shine-effect:hover::after { left: 125%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
