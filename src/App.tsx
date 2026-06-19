@@ -13,7 +13,7 @@ import NotFoundPage from './pages/NotFoundPage'
 
 export default function App() {
   return (
-    <BrowserRouter basename="/shopnest">
+    <BrowserRouter>
       <div className="min-h-screen bg-dark flex flex-col">
         <Navbar />
         <div className="flex-1">
